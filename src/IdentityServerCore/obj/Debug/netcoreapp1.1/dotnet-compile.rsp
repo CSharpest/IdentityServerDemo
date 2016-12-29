@@ -147,5 +147,6 @@
 --reference:C:\Users\Joe Gannon\.nuget\packages\System.Xml.ReaderWriter\4.3.0\ref\netstandard1.3\System.Xml.ReaderWriter.dll
 --reference:C:\Users\Joe Gannon\.nuget\packages\System.Xml.XDocument\4.3.0\ref\netstandard1.3\System.Xml.XDocument.dll
 --resource:"C:\Users\Joe Gannon\Open Source\IdentityServerDemo\src\IdentityServerCore\obj\Debug\netcoreapp1.1\IdentityServerCoredotnet-compile.deps.json",IdentityServerCore.deps.json
+C:\Users\Joe Gannon\Open Source\IdentityServerDemo\src\IdentityServerCore\config.cs
 C:\Users\Joe Gannon\Open Source\IdentityServerDemo\src\IdentityServerCore\Program.cs
 C:\Users\Joe Gannon\Open Source\IdentityServerDemo\src\IdentityServerCore\Startup.cs
