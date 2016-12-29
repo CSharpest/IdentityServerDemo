@@ -11,23 +11,26 @@ namespace IdentityServerCore
         // For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddMvc();
+
             services.AddIdentityServer()
                 //not for prod
                 .AddTemporarySigningCredential()
                 .AddInMemoryApiResources(Config.GetApiResources())
                 .AddInMemoryClients(Config.GetClients())
-                .AddTestUsers(Config.GetUsers());
+                .AddTestUsers(Config.GetUsers())
+                .AddInMemoryIdentityResources(Config.GetIdentityResources());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
-            loggerFactory.AddConsole(LogLevel.Debug);
+          //  loggerFactory.AddConsole(LogLevel.Debug);
 
-            app.UseDeveloperExceptionPage();
+         //   app.UseDeveloperExceptionPage();
 
             //registers in memory store not for prod
-            app.UseIdentityServer();
+         //   app.UseIdentityServer();
 
             //if (env.IsDevelopment())
             //{
@@ -38,6 +41,14 @@ namespace IdentityServerCore
             //{
             //    await context.Response.WriteAsync("Hello World!");
             //});
+
+            loggerFactory.AddConsole(LogLevel.Debug);
+            app.UseDeveloperExceptionPage();
+
+            app.UseIdentityServer();
+
+            app.UseStaticFiles();
+            app.UseMvcWithDefaultRoute();
         }
     }
 }

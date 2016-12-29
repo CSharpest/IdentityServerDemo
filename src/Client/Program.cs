@@ -14,6 +14,7 @@ namespace Client
 
         private static async Task MainAsync()
         {
+            Console.ReadLine();
             //discover end points from metadata
             var disco = await DiscoveryClient.GetAsync("http://localhost:5000");
 
