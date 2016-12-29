@@ -18,8 +18,13 @@ namespace Client
             var disco = await DiscoveryClient.GetAsync("http://localhost:5000");
 
             // request token
-            var tokenClient = new TokenClient(disco.TokenEndpoint, "client", "secret");
-            var tokenResponse = await tokenClient.RequestClientCredentialsAsync("api1");
+            //protected using client credentials
+            //var tokenClient = new TokenClient(disco.TokenEndpoint, "client", "secret");
+            //var tokenResponse = await tokenClient.RequestClientCredentialsAsync("api1");
+
+            //protected using resource owner (user) credentials
+            var tokenClient = new TokenClient(disco.TokenEndpoint, "ro.client", "secret");
+            var tokenResponse = await tokenClient.RequestResourceOwnerPasswordAsync("bob", "password", "api1");
 
             if (tokenResponse.IsError)
             {
